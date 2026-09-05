@@ -49,9 +49,11 @@ görünür, ekip fark eder.
 ![](runs_overview.png)
 
 
+
 İki manuel çalıştırma, ikisi de başarılı. #1 `no_llm` ile şablon brifing, #2 `ANTHROPIC_API_KEY` secret'ı eklendikten sonra gerçek LLM brifingi.
 
 ![](run_steps.png)
+
 
 
 Adım sırası: testler gönderimden önce koşuyor. Node 20 uyarısı GitHub'ın action sürümleriyle ilgili, pipeline'ı etkilemiyor.
@@ -59,9 +61,16 @@ Adım sırası: testler gönderimden önce koşuyor. Node 20 uyarısı GitHub'ı
 ![](run_artifact.png)
 
 
+
 #1 artefaktı: LLM devre dışıyken üretilen şablon brifing (fallback yolu).
 
 ![](run_llm_audit.png)
 
 
+
 #2 artefaktı, `brief_audit.json`: model `claude-sonnet-4-6`, ilk denemede grounding denetimi geçti (bilinmeyen sayı, bilinmeyen kampanya ve atlanmış kritik bulgu: sıfır).
+
+![](slack_delivery.png)
+
+
+GitHub Actions'tan tetiklenen çalıştırmanın `#ads-morning-brief` kanalına düşen LLM brifingi. Slack gönderimi HTTP koduna değil Slack'in `ok` yanıtına göre doğrulanıyor; yönlendirme kaynaklı yanlış pozitif test sırasında yakalanıp düzeltildi.

@@ -83,11 +83,12 @@ Sağlayıcı Anthropic (`claude-sonnet-4-6`). SDK 1.x `temperature` parametresin
 
 Kalite denetimi, brifingi okuyup beğenmek değil, ölçmek: "denetimden geçen brifing oranı" ve "fallback'e düşme oranı" Actions artefaktlarından takip edilebilir. Kapsam dışı: ikinci bir LLM ile "yargıç" değerlendirmesi (deterministik denetim yeterli görüldü).
 
-`output/brief_sample_llm.md`: output/brief_sample_llm.md: prompt ve payload ile üretilmiş, denetimden geçmiş örnek çıktı
+`output/brief_sample_llm.md`: prompt ve payload ile üretilmiş, denetimden geçmiş örnek çıktı
 
 ## 4. Otomasyon
 
 GitHub Actions, `0 5 * * *` UTC = 08:00 İstanbul. Adımlar, secret'lar ve hata yönetimi `automation/README.md`'de. Test adımı gönderimden önce; hiçbir kanal gönderemezse exit 2.
+Slack teslimi Actions üzerinden canlı doğrulandı (bkz. [automation/README.md](automation/README.md), "Çalıştırma kanıtı" bölümü)
 
 ## 5. Reklam operasyonu değerlendirmesi
 
@@ -101,10 +102,9 @@ GitHub Actions, `0 5 * * *` UTC = 08:00 İstanbul. Adımlar, secret'lar ve hata 
 - Gün-of-week mevsimsellik modeli; 28 günlük taban bunu kabaca karşılıyor, tam DOW ayrıştırması için 60 gün kısa.
 - LLM-as-judge ikinci denetim.
 - Meta CAPI/pixel `event_id` bazlı gerçek dedupe (ham veride yok).
+- E-posta gönderimi kodlandı (SMTP) ancak bu teslimde canlı test edilmedi; SMTP_* secret'ları eklendiğinde ek değişiklik gerektirmeden çalışır.
 
 ## Yapay zeka kullanımı
-
-Claude (Anthropic) ile birlikte çalışıldı: veri keşfi, kod yazımı, test ve dokümantasyon taslağı. Bulguların yorumu, eşik seçimleri ve aksiyon kararları kontrol edilip son hâli verildi. Brifingin kendisi de üretimde Claude tarafından yazılıyor; bu yüzden denetim katmanı deterministik tutuldu.
 
 Çalışma boyunca Claude (Anthropic) ile birlikte çalıştım. Kullanım alanları:
 
@@ -118,5 +118,6 @@ Benim tarafımda kalan kararlar ve kontroller:
 - Üç kritik bulgunun seçimi ve "gerçek mi, veri mi" yorumu; aksiyon önerileri.
 - Pipeline'ın kendi ortamımda uçtan uca çalıştırılması. İlk canlı çalıştırmada SDK 1.x uyumsuzluğu nedeniyle LLM çağrısı hata verdi; fallback devreye girip şablon brifingi üretti, hata `brief_audit.json`'a düştü. Sorunu tespit edip kodu ve dokümantasyonu güncelledim.
 - İlk model çıktısını okuyup prompt'u üç noktada düzelttim: iki dilli başlıklar, gereksiz ayırıcılar ve veri boşluğuna neden atfedilmesi.
+- Slack gönderiminde HTTP 200 yanıtının yanlış pozitif olabildiğini (yönlendirme) test sırasında fark edip doğrulamayı Slack'in `ok` yanıtına bağladım.
 
 Brifingin kendisi de üretimde bir LLM tarafından yazıldığı için, çıktı denetimini modele değil deterministik bir doğrulayıcıya bıraktım.
