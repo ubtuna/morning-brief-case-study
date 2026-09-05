@@ -1,0 +1,17 @@
+{
+  "model": "claude-sonnet-4-6",
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok": true,
+      "problems": []
+    }
+  ],
+  "source": "llm",
+  "validation": {
+    "ok": true,
+    "unknown_numbers": [],
+    "unknown_campaigns": [],
+    "missing_critical": []
+  }
+}
