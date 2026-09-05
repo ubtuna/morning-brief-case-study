@@ -1,29 +1,33 @@
-## Kritik Uyarı: NK | Search | Generic DE Kampanyasında 5 Gündür Süren CPC ve Maliyet Artışı
+## Google DE arama kampanyasında 5 gündür süren kritik maliyet artışı acil inceleme gerektiriyor.
+
+---
 
 ### Ne Oldu
 
-- **Google · NK | Search | Generic DE · DE** — CPC, 7 günlük 0,97 €'dan 1,40 €'ya yükseldi (7 günlük bazın 1,44x'i, 28 günlük bazın 2,39x'i); kampanya maliyeti aynı dönemde 383 €'dan 522 €'ya çıktı (7 günlük bazın 1,36x'i). Her iki anomali de **5 gündür devam ediyor · kritik · güven: yüksek.**
+- **Google · NK | Search | Generic DE · DE · CPC:** Son değer 1,40 EUR, 7 günlük baz 0,97 EUR (1,44x); 28 günlük baza göre 2,39x. 5 gündür sürüyor. **Kritik, güven: yüksek.**
+- **Google · NK | Search | Generic DE · DE · Maliyet:** Son değer 521,95 EUR, 7 günlük baz 383,41 EUR (1,36x); 28 günlük baza göre 2,25x. 5 gündür sürüyor. **Kritik, güven: yüksek.**
+- **Meta · VC | Prospecting | US · US · ROAS (28 gün):** 10.026,77 EUR harcamada 28 günlük ROAS 1,13; eşik olan 1,5'in altında, marj sonrası muhtemelen kârsız. **Kronik uyarı, güven: yüksek.**
+- **Meta · AH | Retargeting | UK · UK · Maliyet:** Son değer 139,37 EUR, 7 günlük baz 93,23 EUR (1,49x). 1 gündür sürüyor. **Uyarı, güven: yüksek.**
+- **Meta · NK | Retargeting | DPA · DE · Maliyet:** Son değer 163,64 EUR, 7 günlük baz 121,06 EUR (1,35x). 1 gündür sürüyor. **Uyarı, güven: yüksek.**
 
-- **Meta · VC | Prospecting | US · US** — 28 günlük ROAS 1,13; 10.027 € harcama üzerinden 1,5 taban seviyesinin altında kalıyor. Raporun notu kârsız olabileceğine işaret ediyor. **Kronik · güven: yüksek.**
-
-- **Meta · AH | Retargeting | UK · UK** — Dünkü maliyet 139 €; 7 günlük 93 € bazının 1,49x'i. 1 gündür devam ediyor · uyarı · güven: yüksek.
-
-- **Google · VC | Search | Brand US · US** — Dünkü maliyet 182 €; 7 günlük 126 € bazının 1,44x'i. 1 gündür devam ediyor · uyarı · güven: yüksek.
-
-- **Meta · NK | Retargeting | DPA · DE** — Dünkü maliyet 164 €; 7 günlük 121 € bazının 1,35x'i. 1 gündür devam ediyor · uyarı · güven: yüksek.
+---
 
 ### Toplamlar
 
-Dün: harcama 2.950 €, dönüşüm 85,49, ROAS 2,10, CPA 34,51 € — önceki 7 günlük günlük ortalamaya (harcama 2.573 €, dönüşüm 202,53, ROAS 5,51, CPA 12,70 €) kıyasla dönüşüm ve ROAS'ta keskin düşüş görünmektedir; ancak bu rakamlar aşağıdaki raporlama gecikmesiyle doğrudan ilişkilidir.
+Dün toplam harcama 2.949,91 EUR, dönüşüm 85,49, ROAS 2,10, CPA 34,51 EUR — önceki 7 günlük günlük ortalama: 2.572,73 EUR harcama, 202,53 dönüşüm, ROAS 5,51, CPA 12,70 EUR. (Dönüşüm ve ROAS rakamları raporlama gecikmesi nedeniyle geçicidir; aşağıya bakınız.)
+
+---
 
 ### Veri Uyarıları
 
-- **Raporlama gecikmesi (Google):** Tüm Google kampanyalarında dönüşümler 28 günlük bazın −58% altında; ancak tıklama ve gösterimler sabit. Bu bir performans düşüşü değil, attribution gecikmesiyle uyumlu bir veridir. Dönüşüm tabanlı KPI'lar geçicidir; 2 gün sonra yeniden kontrol edilmeli.
-- **Raporlama gecikmesi (Meta):** Tüm Meta kampanyalarında dönüşümler 28 günlük bazın −60% altında; tıklama ve gösterimler sabit. Aynı gecikme paterni geçerlidir; KPI'lar geçicidir.
-- **Veri eksikliği (Meta):** Meta · VC | Retargeting | US · US kampanyasında 2026-08-08 ile 2026-08-19 tarihleri arasında 12 günlük veri yok. Bu bir raporlama sorunudur.
+- **Google – conversion_reporting_lag:** Google'da dönüşümler 28 günlük baza göre −58% düşük görünüyor; bu durum 100% kampanyayı kapsıyor. Ancak tıklamalar ve gösterimler düz seyrediyor. Veri gecikmeli attribution ile uyumlu; konversiyon bazlı KPI'lar (ROAS, CPA) geçici. 2 gün sonra yeniden kontrol edilmeli.
+- **Meta – conversion_reporting_lag:** Meta'da dönüşümler −60% düşük, 100% kampanyayı kapsıyor; tıklamalar ve gösterimler düz. Aynı gecikme deseni; konversiyon bazlı KPI'lar geçici. 2 gün sonra yeniden kontrol edilmeli.
+- **Meta – Veri eksiği:** `VC | Retargeting | US` [US] kampanyasında 2026-08-08'den 2026-08-19'a kadar 12 gün veri bulunmuyor.
+
+---
 
 ### Önerilen Aksiyonlar
 
-- **NK | Search | Generic DE** için teklif stratejisini ve bütçe kaplarını gözden geçirin; 5 gündür süren CPC artışının devam edip etmediğini ve teklif kurallarında tetikleyici bir değişiklik olup olmadığını kontrol edin.
-- **VC | Prospecting | US** kampanyasını duraklatmayı veya bütçesini kısmayı değerlendirin; 10.027 € harcamada 28 günlük ROAS 1,13 ile kârlılık eşiğinin altında kalınmaktadır.
-- **AH | Retargeting | UK, VC | Search | Brand US ve NK | Retargeting | DPA** için maliyet artışlarının bugün de devam edip etmediğini izleyin; tekrar ederse bütçe kaplarını gözden geçirin.
+- **NK | Search | Generic DE (Google, DE):** 5 gündür süren ve 28 günlük baza göre 2,39x yükselen CPC için bid stratejisini ve açık artırma değişikliklerini incele; kampanyaya bir bütçe üst sınırı koyup koymamaya karar ver.
+- **VC | Prospecting | US (Meta, US):** 28 günlük ROAS 1,13 ile 10.026,77 EUR harcanan bu kampanyanın sürdürülmesini ya da bütçe kısıtlamasını değerlendir.
+- **VC | Retargeting | US (Meta, US):** 2026-08-08 – 2026-08-19 arasındaki 12 günlük veri eksiğinin kaynağını takip sisteminde araştır.

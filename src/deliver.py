@@ -41,8 +41,11 @@ def send_slack(text: str, webhook: str | None = None, timeout: int = 15) -> bool
                                  headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            ok = 200 <= resp.status < 300
-            log.info("slack status=%s", resp.status)
+            body = resp.read().decode("utf-8", "replace").strip()
+            # Slack answers a literal "ok". Anything else (e.g. a redirect to
+            # slack.com that still returns 200) is a failure, not a success.
+            ok = resp.status == 200 and body == "ok"
+            log.info("slack status=%s body=%s", resp.status, body[:40])
             return ok
     except Exception as exc:
         log.error("slack delivery failed: %s", exc)
