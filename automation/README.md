@@ -43,3 +43,25 @@ görünür, ekip fark eder.
 
 - API'den canlı veri çekme adımı (CSV repo'da). Eklenecek yer: "Build brief" adımından önce tek bir `python src/fetch.py`.
 - Slack Block Kit ile zengin formatlama; şu an mrkdwn düz metin.
+
+## Çalıştırma kanıtı
+
+![](runs_overview.png)
+
+
+İki manuel çalıştırma, ikisi de başarılı. #1 `no_llm` ile şablon brifing, #2 `ANTHROPIC_API_KEY` secret'ı eklendikten sonra gerçek LLM brifingi.
+
+![](run_steps.png)
+
+
+Adım sırası: testler gönderimden önce koşuyor. Node 20 uyarısı GitHub'ın action sürümleriyle ilgili, pipeline'ı etkilemiyor.
+
+![](run_artifact.png)
+
+
+#1 artefaktı: LLM devre dışıyken üretilen şablon brifing (fallback yolu).
+
+![](run_llm_audit.png)
+
+
+#2 artefaktı, `brief_audit.json`: model `claude-sonnet-4-6`, ilk denemede grounding denetimi geçti (bilinmeyen sayı, bilinmeyen kampanya ve atlanmış kritik bulgu: sıfır).

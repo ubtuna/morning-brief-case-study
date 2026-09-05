@@ -26,6 +26,7 @@ log = logging.getLogger(__name__)
 
 def _md_to_slack(text: str) -> str:
     """Slack mrkdwn uses *bold* not **bold**."""
+    text = re.sub(r"^-{3,}\s*$", "", text, flags=re.M)
     text = re.sub(r"^#{1,6}\s*(.+)$", r"*\1*", text, flags=re.M)
     return text.replace("**", "*")
 
