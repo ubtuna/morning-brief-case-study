@@ -87,8 +87,9 @@ Kalite denetimi, brifingi okuyup beğenmek değil, ölçmek: "denetimden geçen 
 
 ## 4. Otomasyon
 
-GitHub Actions, `0 5 * * *` UTC = 08:00 İstanbul. Adımlar, secret'lar ve hata yönetimi `automation/README.md`'de. Test adımı gönderimden önce; hiçbir kanal gönderemezse exit 2.
-Slack teslimi Actions üzerinden canlı doğrulandı (bkz. [automation/README.md](automation/README.md), "Çalıştırma kanıtı" bölümü)
+GitHub Actions, `40 4 * * *` UTC = 07:40 İstanbul (GitHub cron'unun gecikme payı için saat başından erkene alındı). Adımlar, secret'lar ve hata yönetimi `automation/README.md`'de. Test adımı gönderimden önce; hiçbir kanal gönderemezse exit 2.
+
+Slack teslimi Actions üzerinden canlı doğrulandı (bkz. [automation/README.md](automation/README.md), "Çalıştırma kanıtı" bölümü).
 
 ## 5. Reklam operasyonu değerlendirmesi
 

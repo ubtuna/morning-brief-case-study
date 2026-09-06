@@ -2,9 +2,10 @@ name: Morning Brief
 
 on:
   schedule:
-    # 08:00 Europe/Istanbul. Turkey has no DST (UTC+3 year-round), so this is a
-    # fixed 05:00 UTC. GitHub cron is UTC-only; adjust here if the team timezone changes.
-    - cron: "0 5 * * *"
+    # Target 08:00 Europe/Istanbul (UTC+3, no DST). GitHub cron is best-effort
+    # and top-of-hour slots are the most delayed, so we schedule at 04:40 UTC
+    # on an odd minute.
+    - cron: "40 4 * * *"
   workflow_dispatch:
     inputs:
       report_date:

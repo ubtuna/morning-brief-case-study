@@ -13,7 +13,7 @@ bozuksa Slack'e hiçbir şey gitmiyor.
 
 | # | Adım | Ne yapar |
 |---|------|----------|
-| 1 | `schedule: 0 5 * * *` | Her gün 05:00 UTC = 08:00 İstanbul (Türkiye'de yaz saati yok, sabit). |
+| 1 | `schedule: 40 4 * * *` | Her gün 04:40 UTC = 07:40 İstanbul; saat başı slotları en çok geciken slotlar olduğu için erken ve tek dakikaya alındı. |
 | 2 | `workflow_dispatch` | Manuel tetikleme; `report_date` ile geçmiş bir gün yeniden üretilebilir, `no_llm` ile şablon çıktı test edilir. |
 | 3 | `concurrency` | Aynı anda iki brifing koşmasını engeller. |
 | 4 | checkout + setup-python + pip | Ortamı kurar (`requirements.txt`). |
@@ -38,6 +38,7 @@ görünür, ekip fark eder.
 - Veri dosyası eksik/şeması bozuk → `SchemaError`, exit 1, artefakt yine yüklenir.
 - LLM erişilemez ya da denetimden geçemez → 1 retry, sonra şablon brifing; gönderim yine yapılır.
 - Slack düşerse e-posta, e-posta düşerse Slack bağımsız olarak denenir.
+- GitHub Actions cron'u kesin zamanlama garantisi vermez; ilk zamanlanmış çalıştırma 4 saat gecikmeli tetiklendi (`scheduled_run.png`). Tetikleme bu yüzden saat başından 07:40'a kaydırıldı. Dakika hassasiyeti gerekirse harici bir zamanlayıcı (Cloud Scheduler, cron'lu bir VM, n8n) `workflow_dispatch`'i GitHub API üzerinden tetikleyebilir; pipeline kodu değişmez.
 
 ## Kapsam dışı (süre kısıtı)
 
@@ -50,9 +51,11 @@ görünür, ekip fark eder.
 
 
 
+
 İki manuel çalıştırma, ikisi de başarılı. #1 `no_llm` ile şablon brifing, #2 `ANTHROPIC_API_KEY` secret'ı eklendikten sonra gerçek LLM brifingi.
 
 ![](run_steps.png)
+
 
 
 
@@ -62,9 +65,11 @@ Adım sırası: testler gönderimden önce koşuyor. Node 20 uyarısı GitHub'ı
 
 
 
+
 #1 artefaktı: LLM devre dışıyken üretilen şablon brifing (fallback yolu).
 
 ![](run_llm_audit.png)
+
 
 
 
@@ -73,4 +78,10 @@ Adım sırası: testler gönderimden önce koşuyor. Node 20 uyarısı GitHub'ı
 ![](slack_delivery.png)
 
 
+
 GitHub Actions'tan tetiklenen çalıştırmanın `#ads-morning-brief` kanalına düşen LLM brifingi. Slack gönderimi HTTP koduna değil Slack'in `ok` yanıtına göre doğrulanıyor; yönlendirme kaynaklı yanlış pozitif test sırasında yakalanıp düzeltildi.
+
+![](scheduled_run.png)
+
+
+#4: cron ile otomatik tetiklenen ilk çalıştırma. GitHub 05:00 UTC hedefini ~4 saat geç tetikledi; brifing yine müdahalesiz Slack'e düştü.
