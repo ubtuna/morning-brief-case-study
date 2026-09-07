@@ -39,6 +39,7 @@ görünür, ekip fark eder.
 - LLM erişilemez ya da denetimden geçemez → 1 retry, sonra şablon brifing; gönderim yine yapılır.
 - Slack düşerse e-posta, e-posta düşerse Slack bağımsız olarak denenir.
 - GitHub Actions cron'u kesin zamanlama garantisi vermez; ilk zamanlanmış çalıştırma 4 saat gecikmeli tetiklendi (`scheduled_run.png`). Tetikleme bu yüzden saat başından 07:40'a kaydırıldı. Dakika hassasiyeti gerekirse harici bir zamanlayıcı (Cloud Scheduler, cron'lu bir VM, n8n) `workflow_dispatch`'i GitHub API üzerinden tetikleyebilir; pipeline kodu değişmez.
+- 07:40'a kaydırıldıktan sonraki ilk gün de tetikleme 10:45 itibarıyla gelmemişti; GitHub'ın zamanlayıcısı bu repo için tutarlı şekilde saatler geç çalışıyor. Üretimde bu yüzden harici bir zamanlayıcı ile `workflow_dispatch` tetiklemesi önerilir.
 
 ## Kapsam dışı (süre kısıtı)
 
